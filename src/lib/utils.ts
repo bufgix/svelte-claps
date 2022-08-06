@@ -1,12 +1,15 @@
 import { Redis } from '@upstash/redis';
-import { createHash } from 'crypto';
-import 'dotenv/config';
 import type { ClapsResponse } from './types';
+import variables from './variables';
 
-const redis = Redis.fromEnv();
+const redis = new Redis({
+	url: variables.UPSTASH_URL,
+	token: variables.UPSTASH_TOKEN
+});
 
-export function generateHash(ip: string) {
-	return createHash('sha256').update(ip).digest('base64');
+export async function generateHash(ip: string) {
+	const crypto = await import('crypto');
+	return crypto.createHash('sha256').update(ip).digest('base64');
 }
 
 export function generateKey(url: URL, key: string) {
