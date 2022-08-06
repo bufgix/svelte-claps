@@ -13,7 +13,7 @@
 	export let replyUrl: string;
 	export let shareButton = false;
 	export let apiPath = `/api/claps`;
-	export let key = $page.url.href;
+	export let key = $page.url.pathname;
 
 	enum ReactionClass {
 		default = '',
@@ -231,76 +231,25 @@
 		background-color: rgb(0 0 0 / 5%);
 	}
 
-	.claps-button-suffix {
-		opacity: 0.4;
-	}
-
 	.claps-body:hover .claps-divider {
 		background-color: transparent;
 	}
 
-	.claps-button svg {
+	.claps-button :global(svg) {
 		color: rgb(0 0 0 / 80%);
 	}
 
-	.claps-button:hover svg {
+	.claps-button:hover :global(svg) {
 		color: rgb(0 0 0 / 100%);
 	}
 
-	.claps-button-clap.clapped svg {
+	.claps-button-clap.clapped :global(svg) {
 		color: rgb(0 0 0 / 100%);
 	}
 
-	.claps-share-modal {
-		position: fixed;
-		inset: 0;
-		z-index: 999;
-		background-color: rgb(0 0 0 / 60%);
-		display: grid;
-		place-items: center;
-	}
-
-	.claps-share-content {
-		position: relative;
-		padding: 2rem;
-		background-color: white;
-		filter: drop-shadow(0 4px 8px rgb(0 0 0 / 20%));
-		border-radius: 1rem;
-	}
-
-	.claps-share-header {
-		display: flex;
-		align-items: center;
-	}
-
-	.claps-share-header h3 {
+	.claps-share-header :global(svg) {
 		font-size: 1.4rem;
 		font-weight: bold;
-	}
-
-	.claps-share-close {
-		margin-left: auto;
-		opacity: 0.5;
-	}
-
-	.claps-share-buttons {
-		margin-top: 2rem;
-		display: flex;
-		align-items: center;
-		gap: 2rem;
-	}
-
-	.claps-share-button {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.6rem;
-	}
-
-	.claps-share-button-icon {
-		padding: 0.6rem;
-		background-color: rgb(0 0 0 / 6%);
-		border-radius: 100%;
 	}
 
 	.claps-share-button:hover .claps-share-button-icon {
@@ -309,7 +258,7 @@
 
 	/* https://github.com/animate-css/animate.css */
 
-	.animated {
+	:global(.animated) {
 		animation-duration: var(--animate-duration);
 		animation-fill-mode: both;
 	}
