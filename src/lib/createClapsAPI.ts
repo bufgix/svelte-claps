@@ -10,8 +10,8 @@ const prepareRequest = async (event: RequestEvent) => {
 	const { score } = body;
 
 	const key = event.url.searchParams.get('key') as string;
-
-	const RAW_IP = getIP(event.request);
+	console.log(event.clientAddress)
+	const RAW_IP = event.clientAddress
 	const KEY = `CLAP:${key}`;
 	const HASH_IP = await generateHash(RAW_IP);
 

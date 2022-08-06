@@ -14,7 +14,6 @@ export async function generateHash(ip: string) {
 
 export function getIP(req: Request) {
 	const xff = req.headers.get('x-forwarded-for');
-
 	return xff ? (Array.isArray(xff) ? xff[0] : xff.split(',')[0]) : '127.0.0.1';
 }
 
