@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { page } from '$app/stores';
-	import { debounce } from 'lodash';
+	import _ from 'lodash';
 	import TheIcons from '$lib/components/TheIcons.svelte';
 	import Icon from '$lib/components/Icon.svelte';
 	import type { ClapsResponse } from '$lib/types';
@@ -47,7 +47,7 @@
 		}
 	};
 
-	const onClapSave = debounce(async (score: number) => {
+	const onClapSave = _.debounce(async (score: number) => {
 		try {
 			if (data.userScore >= data.maxClaps) {
 				reactionClass = ReactionClass.reject;
