@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
+	import { page } from '$app/stores';
 	import { debounce } from 'lodash';
 	import TheIcons from '$lib/components/TheIcons.svelte';
 	import Icon from '$lib/components/Icon.svelte';
@@ -12,7 +13,7 @@
 	export let replyUrl: string;
 	export let shareButton = false;
 	export let apiPath = `/api/claps`;
-	export let key = '';
+	export let key = $page.url.href;
 
 	enum ReactionClass {
 		default = '',
@@ -34,7 +35,7 @@
 	const getData = async () => {
 		loading = true;
 		try {
-			const response = await fetch(apiPath, {
+			const response = await fetch(`${apiPath}?key=${key}`, {
 				method: 'GET'
 			});
 			if (!response.ok) return;
@@ -52,12 +53,12 @@
 				reactionClass = ReactionClass.reject;
 				return;
 			}
-			const response = await fetch(apiPath, {
+			const response = await fetch(`${apiPath}?key=${key}`, {
 				method: 'PATCH',
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify({ score, key })
+				body: JSON.stringify({ score })
 			});
 
 			if (!response.ok) {

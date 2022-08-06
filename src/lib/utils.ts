@@ -12,14 +12,6 @@ export async function generateHash(ip: string) {
 	return crypto.createHash('sha256').update(ip).digest('base64');
 }
 
-export function generateKey(url: URL, key: string) {
-	if (key) {
-		return `CLAP:${key}`;
-	}
-
-	return `CLAP:${url.origin + url.pathname}`;
-}
-
 export function getIP(req: Request) {
 	const xff = req.headers.get('x-forwarded-for');
 
