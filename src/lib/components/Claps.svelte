@@ -10,7 +10,7 @@
 
 	// props
 	export let fixed: 'left' | 'center' | 'right' | 'default' = 'default';
-	export let replyUrl: string;
+	export let replyUrl = '';
 	export let shareButton = false;
 	export let apiPath = `/api/claps`;
 	export let key = $page.url.pathname;

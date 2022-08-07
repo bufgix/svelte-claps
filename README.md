@@ -1,38 +1,74 @@
-# create-svelte
+# svelte-claps
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Adds clap button (like medium) to any page for your SvelteKit apps.
 
-## Creating a project
+This package originally was created for Next.js by [@upstash](https://github.com/upstash/claps)
 
-If you're seeing this, you've probably already done this step. Congrats!
+Nothing to maintain, it is completely serverless 💯
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Installation
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+### 1 Create Database
 
-## Developing
+Create a free Redis database at [Upstash Console](https://console.upstash.com)
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+> We will use [Upstash Redis](https://upstash.com) to keep the data as well as
+> messaging (Redis pub/sub).
 
-```bash
-npm run dev
+### 2. Environment Variables
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+Copy the `.env.local.example` file to `.env.local` (which will be ignored by
+Git):
 
 ```bash
-npm run build
+cp .env.local.example .env.local
 ```
 
-You can preview the production build with `npm run preview`.
+> `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` can be found at the
+> database details page in Upstash Console.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+### 3. Install Package
+
+```bash
+npm install --save svelte-claps
+# or
+yarn add svelte-claps
+```
+
+### 4. Setup API
+
+Create a new API endpoint for SvelteKit app. Import the package and expose the
+`GET` and `PATCH` methods.
+
+```ts
+// src/routes/api/claps.js
+
+import createClapsApi from 'svelte-claps';
+
+export const { GET, PATCH } = createClapsApi({ maxClaps: 10 });
+```
+
+### 5. Use `<Claps />` Component
+
+```sveltehtml
+<script lang="ts">
+	import { Claps } from 'svelte-claps';
+</script>
+
+<div class="container">
+	<Claps replyUrl="https://twitter.com/bufgix_" />
+</div>
+
+```
+
+The options can be passed as React props
+
+| key           | type                        | default           |
+| ------------- | --------------------------- |-------------------|
+| `key?`        | `string`                    | current page path |
+| `fixed?`      | `"left", "center", "right"` |                   |
+| `replyUrl?`   | `string`                    |                   |
+| `apiPath?`    | `string`                    | `/api/claps`      |
+
+> pathname of the page is being used as the key/identity to keep the claps count. You
+> can override this giving the `key` attribute.

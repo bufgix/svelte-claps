@@ -3,7 +3,7 @@
 </script>
 
 <div class="container">
-	<Claps replyUrl="https://twitter.com/bufgix_" />
+	<Claps fixed="right" replyUrl="https://twitter.com/bufgix_"  />
 </div>
 
 <style global>
