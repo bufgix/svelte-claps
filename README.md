@@ -6,6 +6,7 @@ This package originally was created for Next.js by [@upstash](https://github.com
 
 Nothing to maintain, it is completely serverless 💯
 
+Check out the [demo](https://www.farukoruc.com/claps-demo)
 
 
 
