@@ -6,6 +6,12 @@ This package originally was created for Next.js by [@upstash](https://github.com
 
 Nothing to maintain, it is completely serverless 💯
 
+
+
+
+https://user-images.githubusercontent.com/22038798/183285638-fd7aaa29-4289-455d-8077-3898c21af64f.mov
+
+
 ## Installation
 
 ### 1 Create Database
