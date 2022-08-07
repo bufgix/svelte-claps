@@ -10,7 +10,10 @@ Check out the [demo](https://www.farukoruc.com/claps-demo)
 
 
 
-https://user-images.githubusercontent.com/22038798/183285638-fd7aaa29-4289-455d-8077-3898c21af64f.mov
+
+https://user-images.githubusercontent.com/22038798/183288317-bc6baf70-4b4c-42e2-82fe-07945557c2b4.mp4
+
+
 
 
 ## Installation
