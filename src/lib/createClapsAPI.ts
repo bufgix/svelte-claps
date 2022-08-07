@@ -1,6 +1,6 @@
 import { Redis } from '@upstash/redis';
 import type { RequestEvent, RequestHandler } from '@sveltejs/kit';
-import { generateHash, getData, getIP } from './utils';
+import { generateHash, getData } from './utils';
 import variables from './variables';
 
 type OptionProps = { maxClaps?: number };
@@ -10,8 +10,7 @@ const prepareRequest = async (event: RequestEvent) => {
 	const { score } = body;
 
 	const key = event.url.searchParams.get('key') as string;
-	console.log(event.clientAddress)
-	const RAW_IP = event.clientAddress
+	const RAW_IP = event.clientAddress;
 	const KEY = `CLAP:${key}`;
 	const HASH_IP = await generateHash(RAW_IP);
 
@@ -38,9 +37,7 @@ function createClapsAPI({ maxClaps = 10 }: OptionProps): {
 		PATCH: async function (event) {
 			try {
 				const { KEY, HASH_IP, score } = await prepareRequest(event);
-
 				let addScore = Number(score) || 0;
-
 				const { userScore } = await getData(KEY, HASH_IP);
 
 				if (userScore >= maxClaps) {

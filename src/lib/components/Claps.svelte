@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { page } from '$app/stores';
 	import _ from 'lodash';
 	import TheIcons from '$lib/components/TheIcons.svelte';
 	import Icon from '$lib/components/Icon.svelte';
-	import type { ClapsResponse } from '$lib/types';
 	import Loading from './Loading.svelte';
+	import { page } from '$app/stores';
+	import type { ClapsResponse } from '$lib/types';
 
 	// props
 	export let fixed: 'left' | 'center' | 'right' | 'default' = 'default';
