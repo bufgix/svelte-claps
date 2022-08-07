@@ -56,7 +56,7 @@ export const { GET, PATCH } = createClapsApi({ maxClaps: 10 });
 
 ### 5. Use `<Claps />` Component
 
-```sveltehtml
+```svelte
 <script lang="ts">
 	import { Claps } from 'svelte-claps';
 </script>
