@@ -93,7 +93,7 @@
 	}
 </script>
 
-<div class="claps-root {fixedRootClass}">
+<div class="claps-root {fixedRootClass} {$$restProps.class}">
 	<TheIcons />
 
 	{#if loading}
