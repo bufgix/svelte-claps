@@ -34,7 +34,7 @@ Git):
 cp .env.local.example .env.local
 ```
 
-> `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` can be found at the
+> `VITE_UPSTASH_URL` and `VITE_UPSTASH_TOKEN` can be found at the
 > database details page in Upstash Console.
 
 ### 3. Install Package
