@@ -11,7 +11,10 @@ Check out the [demo](https://www.farukoruc.com/claps-demo)
 
 
 
-https://user-images.githubusercontent.com/22038798/183288317-bc6baf70-4b4c-42e2-82fe-07945557c2b4.mp4
+
+
+https://user-images.githubusercontent.com/22038798/188115038-c1edd555-7b9f-4175-bb07-a4531bea8386.mp4
+
 
 
 
